@@ -39,7 +39,7 @@ export default {
       ],
       filters: ["borrowed","bought"],
       holding: "bought",
-      searchInput: "",
+      searchInput: ""
     };
   },
   computed: {
@@ -48,7 +48,7 @@ export default {
     },
     searchedBooks(){
       const searchFilter = book => {
-        return book.title.toLowercase().match(this.searchInput.toLowercase());
+        return book.title.toLowerCase().match(this.searchInput.toLowerCase());
       }
       return _.filter(this.books,searchFilter);
     }
