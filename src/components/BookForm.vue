@@ -2,9 +2,22 @@
   <form v-on:submit.prevent="bookSubmit(bookData)" class="" action="#" method="post">
     <input v-model="bookData.bookTitle" type="text" name="title" value="" placeholder="Book Title">
     <input v-model="bookData.bookAuthor" type="text" name="author" value="" placeholder="Book Author">
-    <input type="checkbox" v-model="bookData.finishedReading"><label for="finishedReading">finished Reading</label>
-    <input type="radio" v-model="bookData.ownership" value="borrowed"><label for="borrowed">borrowed</label>
-    <input type="radio" v-model="bookData.ownership" value="bought"><label for="bought">bought</label>
+    <div>
+      <label for="finishedReading">
+        finished Reading
+        <input type="checkbox" v-model="bookData.finishedReading">
+      </label>
+    </div>
+    <div>
+      <label for="borrowed">
+        borrowed
+        <input type="radio" v-model="bookData.ownership" value="borrowed">
+      </label>
+      <label for="bought">
+        bought
+        <input type="radio" v-model="bookData.ownership" value="bought">
+      </label>
+    </div>
     <button type="submit" name="button">Add Book</button>
   </form>
 </template>
@@ -25,7 +38,7 @@ export default {
   },
   methods: {
     bookSubmit(bookData) {
-      this.$emit("addBook", bookData.bookTitle, bookData.bookAuthor);
+      this.$emit("addBook", bookData);
     }
   }
 };
